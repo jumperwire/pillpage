@@ -1,0 +1,223 @@
+Last login: Wed Aug 14 15:56:12 on ttys003
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ docker -ls
+Unable to parse logging level: s
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ docker list
+docker: 'list' is not a docker command.
+See 'docker --help'
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ docker
+
+Usage:	docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/Users/hepoh/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with
+                           "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/Users/hepoh/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/Users/hepoh/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/Users/hepoh/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  builder     Manage builds
+  checkpoint  Manage checkpoints
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  deploy      Deploy a new stack or update an existing stack
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ docker ls
+docker: 'ls' is not a docker command.
+See 'docker --help'
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ docker image ls
+REPOSITORY                                        TAG                        IMAGE ID            CREATED             SIZE
+jumperwire/helloworld-java-spring                 latest                     56ef61dc6fa6        2 weeks ago         87.6MB
+jumperwire/helloworld-java-spring                 <none>                     380b01cf6eb3        2 weeks ago         87.6MB
+<none>                                            <none>                     f6871ee931db        2 weeks ago         183MB
+istio/examples-bookinfo-reviews-v3                3                          444187ba0d6f        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v3                latest                     444187ba0d6f        2 weeks ago         537MB
+jumperwire/reviews-v3                             latest                     444187ba0d6f        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v2                3                          7357b5320011        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v2                latest                     7357b5320011        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v1                3                          15c5b0b9d86a        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v1                latest                     15c5b0b9d86a        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v3                1                          11f9d16370f5        2 weeks ago         537MB
+jumperwire/reviews-v3                             <none>                     11f9d16370f5        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v2                1                          a7ee92cdb340        2 weeks ago         537MB
+jumperwire/reviews-v2                             latest                     a7ee92cdb340        2 weeks ago         537MB
+istio/examples-bookinfo-reviews-v1                1                          80d61673b563        2 weeks ago         537MB
+jumperwire/reviews-v1                             latest                     80d61673b563        2 weeks ago         537MB
+istio/examples-bookinfo-mongodb                   1                          758a0409baa6        2 weeks ago         413MB
+istio/examples-bookinfo-mongodb                   3                          758a0409baa6        2 weeks ago         413MB
+istio/examples-bookinfo-mongodb                   latest                     758a0409baa6        2 weeks ago         413MB
+istio/examples-bookinfo-mysqldb                   1                          1c9a3fd3483e        2 weeks ago         343MB
+istio/examples-bookinfo-mysqldb                   3                          1c9a3fd3483e        2 weeks ago         343MB
+istio/examples-bookinfo-mysqldb                   latest                     1c9a3fd3483e        2 weeks ago         343MB
+istio/examples-bookinfo-ratings-v2                1                          b5ee4880870a        2 weeks ago         218MB
+istio/examples-bookinfo-ratings-v2                3                          b5ee4880870a        2 weeks ago         218MB
+istio/examples-bookinfo-ratings-v2                latest                     b5ee4880870a        2 weeks ago         218MB
+istio/examples-bookinfo-ratings-v1                1                          a0597808b134        2 weeks ago         218MB
+istio/examples-bookinfo-ratings-v1                3                          a0597808b134        2 weeks ago         218MB
+istio/examples-bookinfo-ratings-v1                latest                     a0597808b134        2 weeks ago         218MB
+jumperwire/druginfo                               latest                     a0597808b134        2 weeks ago         218MB
+jumperwire/ratings-v1                             latest                     a0597808b134        2 weeks ago         218MB
+<none>                                            <none>                     46867d574cc8        2 weeks ago         537MB
+<none>                                            <none>                     eb1474ea4313        2 weeks ago         537MB
+<none>                                            <none>                     19d4bd32dfd2        2 weeks ago         537MB
+istio/examples-bookinfo-details-v2                1                          9e636142a9a1        2 weeks ago         206MB
+istio/examples-bookinfo-details-v2                3                          9e636142a9a1        2 weeks ago         206MB
+istio/examples-bookinfo-details-v2                latest                     9e636142a9a1        2 weeks ago         206MB
+jumperwire/details-v1                             latest                     7bd01f2c7d26        2 weeks ago         206MB
+istio/examples-bookinfo-details-v1                1                          7bd01f2c7d26        2 weeks ago         206MB
+istio/examples-bookinfo-details-v1                3                          7bd01f2c7d26        2 weeks ago         206MB
+istio/examples-bookinfo-details-v1                latest                     7bd01f2c7d26        2 weeks ago         206MB
+istio/examples-bookinfo-productpage-v1            1                          b552c1214bce        2 weeks ago         169MB
+istio/examples-bookinfo-productpage-v1            3                          b552c1214bce        2 weeks ago         169MB
+istio/examples-bookinfo-productpage-v1            latest                     b552c1214bce        2 weeks ago         169MB
+jumperwire/productpage-v1                         latest                     b552c1214bce        2 weeks ago         169MB
+websphere-liberty                                 latest                     925c88236bcd        3 weeks ago         504MB
+mongo                                             latest                     9c02a5a12c52        3 weeks ago         413MB
+<none>                                            <none>                     e9cd9db295f5        3 weeks ago         1.12GB
+<none>                                            <none>                     788dedae6422        3 weeks ago         1.12GB
+<none>                                            <none>                     ec51dc301b1c        3 weeks ago         1.12GB
+<none>                                            <none>                     6411731e090c        3 weeks ago         1.12GB
+quay.io/rhdevelopers/quarkus-java-builder         latest                     c204494d203d        3 weeks ago         1.1GB
+python                                            2.7-slim                   5caa018c2dc0        4 weeks ago         137MB
+quay.io/quarkus/ubi-quarkus-native-image          19.0.2                     b0851332e7db        7 weeks ago         1.08GB
+adoptopenjdk/openjdk8                             jdk8u202-b08-alpine-slim   8a31848a3108        3 months ago        70.8MB
+ruby                                              2.3-slim                   6c82e230dca6        4 months ago        205MB
+maven                                             3.5-jdk-8-alpine           fb4bb0d89941        9 months ago        119MB
+openshift/origin-node                             v3.11                      101aa1eb297f        9 months ago        1.16GB
+openshift/origin-control-plane                    v3.11                      881286df075d        9 months ago        818MB
+openshift/origin-cli                              v3.11                      384b8f01f3dc        9 months ago        376MB
+quay.io/hepoh/quaydemo                            latest                     62f479018087        10 months ago       1.15MB
+busybox                                           latest                     59788edf1f3e        10 months ago       1.15MB
+registry.redhat.io/openshift3/ose-node            v3.11                      074bf04571e2        10 months ago       1.15GB
+registry.redhat.io/openshift3/ose-control-plane   v3.11                      1f23828b535b        10 months ago       794MB
+registry.redhat.io/openshift3/ose-cli             v3.11                      9c1e0ca6c1d1        10 months ago       357MB
+gradle                                            4.8.1                      8b2989808a5c        13 months ago       710MB
+node                                              4-slim                     c953ec480e11        15 months ago       211MB
+mysql                                             8.0.3                      00400babc1b7        18 months ago       343MB
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ 
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ 
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ pwd
+/Users/hepoh/RHTE2019/quarkus-app/quarkus-workshop-labs
+Hendras-MacBook-Pro:quarkus-workshop-labs hepoh$ cd ../..
+Hendras-MacBook-Pro:RHTE2019 hepoh$ ls
+basic-install.yaml				istio-tutorial-dl				opendatahub-operator
+catalogsource-installed-redhat-test.yaml	knative-docs					quarkus-app
+druginfo					knative-operators				reflection.json
+force-delete-openshift-project			knative-tutorial				service-mesh.yaml
+helloworld					nolimit.yaml					sqlworkshops
+istio-tutorial					ocp-service-mesh-foundations			subscription-codeready-workspaces.yaml
+Hendras-MacBook-Pro:RHTE2019 hepoh$ cd druginfo/
+Hendras-MacBook-Pro:druginfo hepoh$ ls
+README.md			platform			src
+build_push_update_images.sh	policy				swagger.yaml
+networking			scripts				telemetry
+Hendras-MacBook-Pro:druginfo hepoh$ cd src/
+Hendras-MacBook-Pro:src hepoh$ ls
+build-services.sh	mongodb			productpage		reviews
+details			mysql			ratings
+Hendras-MacBook-Pro:src hepoh$ cd productpage/
+Hendras-MacBook-Pro:productpage hepoh$ ls
+Dockerfile		requirements.txt	test-requirements.txt	uid_entrypoint
+productpage.py		templates		tests
+Hendras-MacBook-Pro:productpage hepoh$ vi productpage.py 
+Hendras-MacBook-Pro:productpage hepoh$ cd templates/
+Hendras-MacBook-Pro:templates hepoh$ ls
+index.html		productpage.html
+Hendras-MacBook-Pro:templates hepoh$ vi productpage.html 
+Hendras-MacBook-Pro:templates hepoh$ vi productpage.html 
+
+          <blockquote>
+            <p>{{ review.text }}</p>
+            <small>{{ review.reviewer }}</small>
+            {% if review.rating: %}
+              {% if review.rating.stars: %}
+                <font color="{{ review.rating.color }}">
+                  <!-- full stars: -->
+                  {% for n in range(review.rating.stars)  %}
+                    <span class="glyphicon glyphicon-star"></span>
+                  {% endfor %}
+                  <!-- empty stars: -->
+                  {% for n in range(5 - review.rating.stars) %}
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                  {% endfor %}
+                </font>
+              {% elif review.rating.error: %}
+                <p><i>{{ review.rating.error }}</i></p>
+              {% endif %}
+            {% endif %}
+          </blockquote>
+        {% endfor %}
+      {% else %}
+        <h4 class="text-center text-primary">Error fetching product reviews!</h4>
+        {% if reviews: %}
+          <p>{{ reviews.error }}</p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
