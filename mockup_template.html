@@ -148,6 +148,15 @@
         stroke: #e28;
         fill-opacity: 0.9;
     }
+    
+    .review .black use {
+        fill: #000;
+        stroke: #000;
+    }
+    .review .red use {
+        fill: #e00;
+        stroke: #e00;
+    }
     .review .empty use {
         fill: none;
         stroke: #ccc;
@@ -228,28 +237,28 @@
         {% if detailsStatus == 200: %}
         <table>
             <tr>
-                <th>Type</th>
-                <td>{{ details.type }}</td>
+                <th>Drug SKU No</th>
+                <td>{{ details.drugSKUNo }}</td>
             </tr>
             <tr>
-                <th>Pages</th>
-                <td>{{ details.pages }}</td>
+                <th>Drug Class</th>
+                <td>{{ details.drugClass }}</td>
             </tr>
             <tr>
-                <th>Publisher</th>
-                <td>{{ details.publisher }}</td>
+                <th>Administration Route</th>
+                <td>{{ details.administrationRoute }}</td>
             </tr>
             <tr>
-                <th>Language</th>
-                <td>{{ details.language }}</td>
+                <th>Available Strength</th>
+                <td>{{ details.availableStrength }}</td>
             </tr>
             <tr>
-                <th>ISBN-10</th>
-                <td>{{ details['ISBN-10'] }}</td>
+                <th>Dosage Form</th>
+                <td>{{ details.dosageForm }}</td>
             </tr>
             <tr>
-                <th>ISBN-13</th>
-                <td>{{ details['ISBN-13'] }}</td>
+                <th>Manufacturer</th>
+                <td>{{ details.manufacturer }}</td>
             </tr>
 
         </table>
@@ -270,7 +279,7 @@
             {% if review.rating: %}
             {% if review.rating.stars: %}
             {% for n in range(review.rating.stars)  %}
-            <svg viewbox="0 0 10 10 ">
+            <svg class="{{ review.rating.color }}" viewbox="0 0 10 10 ">
                 <use xlink:href="#star" /></svg>
             {% endfor %}
             {% for n in range(5 - review.rating.stars) %}
