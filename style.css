@@ -306,11 +306,12 @@ html {
   pointer-events: none;
   position: absolute;
   top: 0.5rem;
-  height: 5rem;
+  height: 6rem;
   left: 1rem;
-  width: 16rem;
+  width: 100%;
   filter: drop-shadow(0 0.2em 0.1em #000);
 }
+.logo svg{height: 100% ; width: 100%;}
 
 body {
   overflow: auto;
