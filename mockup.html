@@ -1,264 +1,29 @@
 
 <!DOCTYPE html>
-<!--                   
-                    `.``     .-..`                          
-                   ://///:--///////:-.`                     
-                  ://///////////////////:-`                 
-                 ./////////////////////////:                
-                `///////////////////////////-               
-                :////////////////////////////`              
-                /////////////////////////////-              
-       `..-::/: `:////////////////////////////              
-     `:////////   `-//////////////////////////.             
-    `//////////:`    `-://////////////////////-`            
-    `////////////-`      `.-:////////////////-`//-`         
-     ://///////////:.          ``...----...`   :////.       
-      -///////////////:-.`                    -//////:      
-       `://////////////////:--.````     ``.-://///////:     
-         `-////////////////////////////////////////////`    
-            `-/////////////////////////////////////////`    
-               `.:////////////////////////////////////.     
-                   `.-://///////////////////////////:`      
-                        ``.-:////////////////////:.`        
-                                ``............`             
+<!-- 
+ ______ _______ _______ ______ _______ _______ ______ _______ 
+|   __ \_     _|     __|   __ \   |   |   _   |   __ \   |   |
+|   __ <_|   |_|    |  |    __/       |       |      <       |
+|______/_______|_______|___|  |___|___|___|___|___|__|__|_|__|
+
 -->
 <html>
   <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display:900|Red+Hat+Text:400,700&display=swap" rel="stylesheet">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-:root {
-  font-family: "Red Hat Text", sans-serif;
-  font-size: 1em;
-}
+<body>
+<input type="checkbox" id="review-show" />
 
-*,
-:before,
-:after {
-  appearance: none;
-  box-sizing: border-box;
-  font-size: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  position: absolute;
-  transform: rotate(-4deg);
-  top: 0.6rem;
-  margin-left: -9rem;
-  font-weight: 800;
-  background-color: #e28;
-  color: white;
-  padding: 0 1rem;
-  padding-right: 0;
-  height: 2rem;
-  line-height: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: inset 0 -0.4em 0.4em rgba(0, 0, 0, 0.25), 0 0.75em 0.5em -0.5em rgba(0, 0, 0, 0.3);
-}
-
-header i {
-  background-color: #279;
-  margin-left: 0.4em;
-  font-style: normal;
-  padding-left: 0.2em;
-  display: inline-block;
-  height: 2em;
-  padding-right: 0.5em;
-  border-radius: 0 1em 1em 0;
-  box-shadow: inset 0 -0.4em 0.4em rgba(0, 0, 0, 0.25);
-}
-
-body {
-  max-width: 25em;
-  margin: 0 auto;
-  user-select: none;
-}
-
-[type="radio"] {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  top: -10vh;
-}
-
- section {
-  opacity: 0;
-  position: absolute;
-  top: 4rem;
-  transition: transform 0.8s ease, opacity 0.3s ease;
-  transform: translate(0, 1em);
-}
-
-nav {
-  user-select: none;
-  margin-left: -1em;
-}
-
-label {
-  cursor: pointer;
-  transition: color 0.3s ease;
-  color: lightgray;
-  display: inline-block;
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0 1rem;
-  user-select: none;
-}
-
-#drug-details:checked ~ * [for="drug-details"],
-#service-info:checked ~ * [for="service-info"],
-#drug-list:checked ~ * [for="drug-list"] {
-  color: black;
-}
-
-#drug-details:checked ~ .drug-details,
-#service-info:checked ~ .service-info,
-#drug-list:checked ~ .drug-list {
-  opacity: 1;
-  transform: none;
-}
-
-h1 {
-  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-  color: #ccc;
-  text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.03);
-  -webkit-text-stroke: 0.02em #444;
-  -webkit-text-fill-color: transparent;
-  font-size: 3em;
-  text-indent: -0.02em;
-}
-
-nav {
-  position: relative;
-}
-
-nav span {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  height: 0.5em;
-  background-color: #e28;
-  width: 0%;
-  border-radius: 0.3em;
-  transition: all 0.4s cubic-bezier(0.4, 0.3, 0.2, 1.1);
-  font-size: 1rem;
-  box-shadow: inset 0 -0.2em 0.2em rgba(0, 0, 0, 0.2), 0 0.5em 0.5em -0.2em rgba(0, 0, 0, 0.5);
-}
-
-h4 {
-  font-weight: bold;
-  margin: 1em 0;
-}
-
-#drug-details:checked ~ nav span {
-  width: 3.5em;
-  left: 6.5em;
-}
-
-#service-info:checked ~ nav span {
-  width: 5.5em;
-  left: 11.5em;
-}
-
-#drug-list:checked ~ nav span {
-  width: 3.7em;
-  left: 1em;
-}
-
-.reviewer {
-  font-size: 0.75em;
-  line-height: 2rem;
-  float: right;
-  color: #aaa;
-  line-height: 1rem;
-  height: 1rem;
-}
-
-.review svg {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-}
-
-.review use {
-  fill: #e28;
-  stroke-width: 0.75;
-  stroke: #e28;
-  fill-opacity: 0.9;
-}
-
-.review .empty use {
-  fill: none;
-  stroke: #ccc;
-}
-
-.error {
-  margin: 1em 0;
-  padding: 1em 2em;
-  background-color: #e00;
-  color: white;
-}
-
-h2 {
-  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-  font-size: 1.5rem;
-  margin-top: 1rem;
-}
-
-table {
-  margin: 1rem 0;
-  border-top: 1px solid #ccc;
-  min-width: 19rem;
-  line-height: 2rem;
-  border-collapse: collapse;
-}
-
-th {
-  text-align: left;
-  font-weight: 500;
-}
-
-th,
-td {
-  border-bottom: 1px solid #ccc;
-}
-
-blockquote {
-  margin-bottom: 1rem;
-}
-
-.reviews {
-  position: absolute;
-  right: -15rem;
-  top: 0;
-  max-width: 13rem;
-}
-
-
-</style>
-<bdoy>
-        <header>Bio<i>Pharm</i></header>
-        <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display:900|Red+Hat+Text:400,700&display=swap" rel="stylesheet">
         
         
         <input type="radio" id="drug-list" name="nav" />
         <input type="radio" id="drug-details" name="nav" checked/>
         <input type="radio" id="service-info" name="nav" />
         
-        <nav> 
-          <label for="drug-list" >Drug list</label><label for="drug-details" >Details</label><label for="service-info" >Service info</label>
-          
-          
-          <span></span>
-        </nav>
-        
-        
-        <section class="drug-list">
-          <h1>Drug List</h1>
-        </section>
+         
         
         <section class="drug-details">
         <h1>Drug Details</h1>
@@ -266,6 +31,12 @@ blockquote {
         <div class="summary">
           
             <h4>Summary</h4>
+            <p>
+        
+        Augmentin is a combination penicillin type antibiotic used to treat a wide variety of bacterial infections. It works by stopping the growth of bacteria.
+        
+        
+        </p>
             <table>
                 <tr><th>{{Property}}</th><td>{{value}}</td></tr>
                 <tr><th>{{Property}}</th><td>{{value}}</td></tr>
@@ -274,10 +45,11 @@ blockquote {
               </table>
             <p></p>
           </div>
-            <div class="reviews">
-            
-            <h4>Reviews</h4>
-            
+<!--  put for outside this tag-->
+
+
+            <div class="reviews red">
+            <label for="review-show"><h4>Reviews</h4></label>
             <blockquote class="review">
               <p>Comprehensive review text with some detail to it</p>
               
@@ -305,16 +77,41 @@ blockquote {
             
             <p class="error">Error fetching product reviews</p>
           </div>
+
+          <!-- end for reviews --> 
+
+
+
+
+
+
+
         </section>
-        
-        <section class="service-info">
-        <h1>Service Info</h1>
-          <p>everything looks good</p>
-        </section>
-        
+         
         
         
         <svg><defs>
            <path id="star" d="M 5,0.85 3.7,3.6 0.6,4 2.8,6.1 2.3,9.2 5,7.7 7.7,9.2 7.2,6.1 9.4,4 6.3,3.6 Z" />  
           </defs></svg>
-</bdoy>
+
+
+<div class="logo">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="10 0 410 120">
+  <defs>
+    <linearGradient id="b" x1="73.6" x2="313.4" y1="77.9" y2="88.7" gradientTransform="translate(-72.6 -83.1) scale(1.45248)" gradientUnits="userSpaceOnUse" >
+      <stop offset="0" stop-color="#ff2273"/>
+      <stop offset=".3" stop-color="#de40e4"/>
+      <stop offset=".3" stop-color="#2a60c4"/>
+      <stop offset="1" stop-color="#0697d9"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#b)" d="M22.4 20.2v51h20.3a35 35 0 0 0 7.2-.7C52.2 70 54.3 69 56 68a13.2 13.2 0 0 0 4.4-4.6 14 14 0 0 0 1.7-7c0-1.7-.3-3.2-.9-4.6a10.8 10.8 0 0 0-2.2-3.5 10.6 10.6 0 0 0-3.3-2.5 13 13 0 0 0-4-1.3v-.2a13 13 0 0 0 6-4c1.5-1.8 2.3-4.2 2.3-7 0-2.6-.5-4.7-1.6-6.4-1-1.7-2.4-3-4.1-4-1.7-1-3.6-1.7-5.6-2a29.5 29.5 0 0 0-6-.7zm45 0v51H80v-51zm83.9 0v51h5.2V47.5h12c2.6 0 5-.3 7-.9a16 16 0 0 0 5.5-2.5c1.6-1.1 2.7-2.6 3.5-4.2 1-1.8 1.3-3.8 1.3-6s-.4-4.4-1.2-6a10.8 10.8 0 0 0-3.5-4.3c-1.5-1.2-3.3-2-5.4-2.5-2.1-.6-4.5-1-7-1zm40.9 0v51h5.2V47.1H228v24.1h5.2v-51H228v22.1h-30.7V20.2zm66.3 0l-22 51h5.6L261 26l18.8 45.2h5.8l-22-51zm31.1 0v51h5.2V24.7h12.7c2 0 3.7.1 5.3.5 1.5.3 2.9.8 4 1.5a7.7 7.7 0 0 1 2.6 2.9c.6 1.1 1 2.5 1 4.2 0 3-1.2 5.3-3.5 6.9a17.5 17.5 0 0 1-9.6 2.2l-3.2.1 2.8 4.4L321 71.2h6.4l-15-24.3c2-.2 3.7-.6 5.3-1.3 1.5-.6 3-1.5 4-2.6a13 13 0 0 0 2.8-4c.7-1.6 1-3.3 1-5.2a14 14 0 0 0-1.3-6.3 10.7 10.7 0 0 0-3.7-4.2 15 15 0 0 0-5.5-2.4c-2.1-.5-4.4-.7-7-.7zm42.7 0v51h5.1l.1-43.6 20 43.6 19.8-43.6v43.6h5.3v-51h-8l-17 39.3-17.4-39.3zm-175.8 4.5h11.7c4 0 7 .7 9.1 2.2 2.2 1.4 3.4 3.7 3.4 7 0 3-1.1 5.2-3.2 6.8a15.3 15.3 0 0 1-9.3 2.4h-11.7zM34.3 30h6c2.6 0 4.6.4 5.9 1.2 1.3.8 2 2 2 3.8 0 1.8-.7 3.2-2 4.1a9 9 0 0 1-5.3 1.4h-6.6zm0 19.6H41c2.7 0 4.8.4 6.4 1.2 1.6.8 2.4 2.3 2.4 4.4 0 1.3-.3 2.3-.8 3.1a5.4 5.4 0 0 1-2.1 1.8c-.8.4-1.8.8-2.8 1a20.9 20.9 0 0 1-3 .2h-7zM132.5 68q-3.7 2-8.7 3.2-5 1.2-10.8 1.2-6.1 0-11.3-2-5-1.9-8.8-5.4-3.6-3.5-5.7-8.4-2-5-2-11t2-11q2.1-5 5.9-8.3 3.7-3.6 8.7-5.4 5-1.9 10.8-1.9 6 0 11.2 1.9 5.2 1.8 8.4 4.8l-7.7 8.9q-1.8-2.1-4.8-3.4-3-1.4-6.6-1.4-3.3 0-6 1.3-2.7 1.1-4.7 3.2t-3.2 5q-1 3-1 6.4 0 3.5 1 6.4 1 3 2.9 5.1 2 2 4.9 3.3 3 1.1 6.6 1.1 2.2 0 4.1-.2 2-.4 3.6-1.1V51h-9.7v-9.8h21V68z" />
+</svg>
+
+
+
+        </div>
+
+
+<a class="refresh" onclick="javascript:window.location.reload(true);">↻</a>
+</body>
