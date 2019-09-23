@@ -101,286 +101,286 @@
 
 {% block styles %}
 <style>
-    :root {
-      font-family: "Red Hat Text", sans-serif;
-      font-size: 1.25em;
-    }
-    
-    *,
-    :before,
-    :after {
-      appearance: none;
-      box-sizing: border-box;
-      font-size: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-    html { position:relative;
-      background-color: #012;
-      overflow: hidden;
-      background-image: linear-gradient(#000, #012);
-    }
-    .logo {
-      background-image: linear-gradient(#000,);
-      display: block;
-      height: 16rem;
-      pointer-events: none;
-      position: absolute;
-      top: 0rem;
-      
-      left: 0rem; right:0;
-      width: 100%;
-      filter: drop-shadow(0 0.2em 0.1em #000);
-    }
-    .logo svg{height: 100% ; width: 100%; position:absolute; top:0;}
-    body{  overflow: auto; }
-    .wrap {
-    
-      padding: 4rem;
-      max-width: 35em;
-      margin: 0 auto;
-      margin-top: 5rem;
-      user-select: none;
-      height: 100vh;
-      color: white;
-    }
-    [type="radio"] {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-      top: -10vh;
-    }
-    nav {
-      user-select: none;
-      margin-left: -1em;
-    }
-    label {
-      cursor: pointer;
-      transition: color 0.3s ease;
-      color: lightgray;
-      display: inline-block;
-      height: 3rem;
-      line-height: 3rem;
-      padding: 0 1rem;
-      user-select: none;
-    }
-    #drug-details:checked ~ * [for="drug-details"],
-    #service-info:checked ~ * [for="service-info"],
-    #drug-list:checked ~ * [for="drug-list"] {
-      color: black;
-    }
-    #drug-details:checked ~ .drug-details,
-    #service-info:checked ~ .service-info,
-    #drug-list:checked ~ .drug-list {
-      opacity: 1;
-      transform: none;
-    }
-    h1 {
-      font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-      color: #ccc;
-      text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.03);
-      -webkit-text-stroke: 0.04em #0697d9;
-      -webkit-text-fill-color: transparent;
-      font-size: 3em;
-      text-indent: -0.02em;
-    }
-    h4 {
-      font-weight: bold;
-      margin: 1em 0;
-    }
-    #drug-details:checked ~ nav span {
-      width: 3.5em;
-      left: 6.5em;
-    }
-    #service-info:checked ~ nav span {
-      width: 5.5em;
-      left: 11.5em;
-    }
-    #drug-list:checked ~ nav span {
-      width: 3.7em;
-      left: 1em;
-    }
-    .reviewer {
-      font-size: 0.75em;
-      line-height: 2rem;
-      float: right;
-      color: #aaa;
-      line-height: 1rem;
-      height: 1rem;
-    }
-    .review svg {
-      width: 1em;
-      height: 1em;
-      display: inline-block;
-    }
-    .review use {
-      fill: #e28;
-      stroke-width: 0.75;
-      stroke: #e28;
-      fill-opacity: 0.9;
-    }
-    .review .empty use {
-      fill: none;
-      stroke: #ccc;
-    }
-    .error {
-      margin: 1em 0;
-      padding: 1em 2em;
-      background-color: #e00;
-      color: white;
-    }
-    h2 {
-      font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-      font-size: 1.5rem;
-      margin-top: 1rem;
-    }
-    table {
-      margin: 1rem 0;
-      width: 100%;
-      border-top: 1px solid #567;
-      min-width: 19rem;
-      line-height: 2rem;
-      border-collapse: collapse;
-    }
-    th {
-      text-align: left;
-      color: #e28;
-      font-weight: 500;
-    }
-    th,
-    td {
-      border-bottom: 1px solid #567;
-    }
-    blockquote {
-      margin: 1rem 0;
-      padding: 1rem 0;
-    }
-    .refresh {
-      cursor: pointer;
-      font-size: 3rem;
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      color: #678;
-    }
-    .refresh:hover {
-      color: #fff;
-    }
-    body:after {
-      content: "";
-      display: block;
-      width: 30vw;
-      height: 100vh;
-      background-color: #e28;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: rotate(45deg);
-      pointer-events: none;
-      animation: refreshed 2s ease forwards;
-    }
-    
-    @keyframes refreshed {
-      0% {
-        opacity: 0;
-        transform:  skew(-45deg) translate(120vw, 0%) scale(1.5);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: skew(-45deg) translate(-120vw, 0%) scale(1.5);
-      }
-    }
-    #review-show {
-      opacity: 0;
-      position: absolute;
-      z-index: 0;
-    }
-    .reviews.red {
-      text-align: center;
-      background-color: #1d4a92;
-      background-image: linear-gradient(-35deg, #031329, #1d4a92);
-      height: 3rem;
-      z-index: 9;
-      transition: all 0.4s cubic-bezier(0.5, 0.1, 0.1, 1);
-      position: fixed;
-      bottom: 0;
-      width: 100vw;
-      left: 0;
-    }
-    #review-show:checked ~ section .reviews.red {
-      height: 100vh;
-      overflow: scroll;
-    }
-    .reviews.red blockquote {
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 1em;
-      width: 22rem;
-      padding: 2em; vertical-align:top;
-      box-shadow: 0 1em .5em -.5em rgba(0,0,0,0.25);
-      display: inline-block;
-    }
-    .reviews.red label {
-      position: relative;
-      width: 100%;
-      display: block;
-      transition: all .5s ease;
-      background-image: linear-gradient(-45deg, #3facff, transparent);
-      display: block;
-      padding: 0.1rem;
-      line-height: 1rem;
-      text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.75);
-    }
-    .reviews.red label:before {
-      content: "";
-      width: 100%;
-      top: 0;
-      bottom: 0;
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      background-color: #fff;
-    }
-    #review-show:checked ~ section .reviews.red label {background-image:none;}
-    .reviews.red label h4{margin-top:1rem}
-    #review-show:checked ~ section .reviews.red label:after{content:"close"; position:absolute; top: .5rem; box-shadow: 0 0 0 .1rem; padding: 1rem;  right:.5rem;}
-    #review-show:not(:checked) ~ section .reviews.red label:before {
-      animation: tease 1s ease infinite;
-    }
-    @keyframes tease {
-      0% {
-        transform: skew(-45deg) translate(-100%, 0);
-      }
-      50% {
-        opacity: 0.5;
-      }
-      100% {
-        transform: skew(-45deg) translate(100%, 0);
-      }
-    }
-    .red blockquote p{ margin: .51rem;  text-align:center; width: 100%; display:block; }
-    .red blockquote  use{stroke-width: .5} 
-    .red blockquote .empty use {animation: fancystar 11s linear infinite ;  }
-    @keyframes fancystar{
-      0%{stroke-dasharray: .5 .5; stroke-dashoffset:24}
-      100%{stroke-dasharray: .5 .5;}
-    }
-    .red blockquote svg{width: 3em; height:2em; margin: 0 -.55em;}
-    @media (max-width: 700px){
-      h1{line-height:1em;}
-    html{overflow:auto !important; }
-    body{overflow:unset}
-    ::root{font-size: 1em;}
-      body{left: 0;max-width: 100vw !important;right: 0;width: auto;margin: 0  !important;margin-top: 5em !important;height: auto !important;/* min-width: 0 !important; */}
-    blockquote{padding: 1rem !important; max-width: 90% !important}
-      .refresh { top: 4rem;}
-    body{padding: 1rem;}
-    div{width: 100% !important}
-    }
+  
+:root {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1.25em;
+}
+
+*,
+:before,
+:after {
+  appearance: none;
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+html { position:relative;
+  background-color: #012;
+  overflow: hidden;
+  background-image: linear-gradient(#000, #012);
+}
+.logo {
+  background-image: linear-gradient(#000, #000, transparent);
+  display: block;
+  height: 6rem;
+  pointer-events: none;
+  position: absolute;
+  top: 0rem;
+  
+  left: 0rem; right:0;
+  width: 100%;
+  filter: drop-shadow(0 0.2em 0.1em #000);
+}
+.logo svg{height: 100% ; width: 100%; position:absolute; top:0;}
+body{  overflow: auto; }
+.wrap {
+
+  max-width: 35em;
+  margin: 0 auto;
+  margin-top: 5rem;
+  user-select: none;
+  height: 100vh;
+  color: white;
+}
+[type="radio"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  top: -10vh;
+}
+nav {
+  user-select: none;
+  margin-left: -1em;
+}
+label {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: lightgray;
+  display: inline-block;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1rem;
+  user-select: none;
+}
+#drug-details:checked ~ * [for="drug-details"],
+#service-info:checked ~ * [for="service-info"],
+#drug-list:checked ~ * [for="drug-list"] {
+  color: black;
+}
+#drug-details:checked ~ .drug-details,
+#service-info:checked ~ .service-info,
+#drug-list:checked ~ .drug-list {
+  opacity: 1;
+  transform: none;
+}
+h1 {
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  color: #ccc;
+  text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.03);
+  -webkit-text-stroke: 0.04em #0697d9;
+  -webkit-text-fill-color: transparent;
+  font-size: 3em;
+  text-indent: -0.02em;
+}
+h4 {
+  font-weight: bold;
+  margin: 1em 0;
+}
+#drug-details:checked ~ nav span {
+  width: 3.5em;
+  left: 6.5em;
+}
+#service-info:checked ~ nav span {
+  width: 5.5em;
+  left: 11.5em;
+}
+#drug-list:checked ~ nav span {
+  width: 3.7em;
+  left: 1em;
+}
+.reviewer {
+  font-size: 0.75em;
+  line-height: 2rem;
+  float: right;
+  color: #aaa;
+  line-height: 1rem;
+  height: 1rem;
+}
+.review svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
+.review use {
+  fill: #e28;
+  stroke-width: 0.75;
+  stroke: #e28;
+  fill-opacity: 0.9;
+}
+.review .empty use {
+  fill: none;
+  stroke: #ccc;
+}
+.error {
+  margin: 1em 0;
+  padding: 1em 2em;
+  background-color: #e00;
+  color: white;
+}
+h2 {
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+table {
+  margin: 1rem 0;
+  width: 100%;
+  border-top: 1px solid #567;
+  min-width: 19rem;
+  line-height: 2rem;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  color: #e28;
+  font-weight: 500;
+}
+th,
+td {
+  border-bottom: 1px solid #567;
+}
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem 0;
+}
+.refresh {
+  cursor: pointer;
+  font-size: 3rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: #678;
+}
+.refresh:hover {
+  color: #fff;
+}
+body:after {
+  content: "";
+  display: block;
+  width: 30vw;
+  height: 100vh;
+  background-color: #e28;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: refreshed 2s ease forwards;
+}
+
+@keyframes refreshed {
+  0% {
+    opacity: 0;
+    transform:  skew(-45deg) translate(120vw, 0%) scale(1.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: skew(-45deg) translate(-120vw, 0%) scale(1.5);
+  }
+}
+#review-show {
+  opacity: 0;
+  position: absolute;
+  z-index: 0;
+}
+.reviews.red {
+  text-align: center;
+  background-color: #1d4a92;
+  background-image: linear-gradient(-35deg, #031329, #1d4a92);
+  height: 3rem;
+  z-index: 9;
+  transition: all 0.4s cubic-bezier(0.5, 0.1, 0.1, 1);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  left: 0;
+}
+#review-show:checked ~ section .reviews.red {
+  height: 100vh;
+  overflow: scroll;
+}
+.reviews.red blockquote {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 1em;
+  width: 22rem;
+  padding: 2em; vertical-align:top;
+  box-shadow: 0 1em .5em -.5em rgba(0,0,0,0.25);
+  display: inline-block;
+}
+.reviews.red label {
+  position: relative;
+  width: 100%;
+  display: block;
+  transition: all .5s ease;
+  background-image: linear-gradient(-45deg, #3facff, transparent);
+  display: block;
+  padding: 0.1rem;
+  line-height: 1rem;
+  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.75);
+}
+.reviews.red label:before {
+  content: "";
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+#review-show:checked ~ section .reviews.red label {background-image:none;}
+.reviews.red label h4{margin-top:1rem}
+#review-show:checked ~ section .reviews.red label:after{content:"close"; position:absolute; top: .5rem; box-shadow: 0 0 0 .1rem; padding: 1rem;  right:.5rem;}
+#review-show:not(:checked) ~ section .reviews.red label:before {
+  animation: tease 1s ease infinite;
+}
+@keyframes tease {
+  0% {
+    transform: skew(-45deg) translate(-100%, 0);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: skew(-45deg) translate(100%, 0);
+  }
+}
+.red blockquote p{ margin: .51rem;  text-align:center; width: 100%; display:block; }
+.red blockquote  use{stroke-width: .5} 
+.red blockquote .empty use {animation: fancystar 11s linear infinite ;  }
+@keyframes fancystar{
+  0%{stroke-dasharray: .5 .5; stroke-dashoffset:24}
+  100%{stroke-dasharray: .5 .5;}
+}
+.red blockquote svg{width: 3em; height:2em; margin: 0 -.55em;}
+@media (max-width: 700px){
+  h1{line-height:1em;}
+html{overflow:auto !important; }
+body{overflow:unset}
+::root{font-size: 1em;}
+  body{left: 0;max-width: 100vw !important;right: 0;width: auto;margin: 0  !important;margin-top: 5em !important;height: auto !important;/* min-width: 0 !important; */}
+blockquote{padding: 1rem !important; max-width: 90% !important}
+  .refresh { top: 4rem;}
+body{padding: 1rem;}
+div{width: 100% !important}
+}
 </style>
 {% endblock %}
